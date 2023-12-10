@@ -1,38 +1,46 @@
-.App {
+body {
+  background-color: #30384b;
+  color: #eee;
+  font-family: 'Nunito';
+}
+
+main {
+  padding-top: 50px;
+  max-width: 340px;
+  margin: 0 auto;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+button {
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.8);
+  border: 0;
+  display: inline-block;
+  width: fit-content;
+  cursor: pointer;
+  margin: 0px;
+  border-radius: 4px;
+  font-size: 16px;
+  padding: 2px 12px;
+  height: 28px;
+  cursor: pointer;
+  background: none;
+  box-shadow: none;
+  font-weight: 300;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+button:focus {
+  background-color: #202532;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.select-mode {
+  display: inline-flex;
+  -webkit-box-pack: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  -webkit-box-align: center;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.time-remaining {
+  font-size: 6rem;
 }
