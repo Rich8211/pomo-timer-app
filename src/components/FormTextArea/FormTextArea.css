@@ -1,0 +1,42 @@
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.input {
+  margin: 2px;
+  border: none;
+  outline: none;
+  border-radius: 2.5px;
+  width: 65%;
+  height: 1.5rem;
+  font-size: 1rem;
+  background-color: #efefef;
+  color: white;
+  border-bottom: 1px solid #fff;
+}
+
+label {
+  text-align: left;
+  margin: auto;
+  width: 65%;
+}
+
+textarea {
+  width: 65%;
+  border-radius: 2.5px;
+  height: 5rem;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+}
+
+.top {
+  font-size: 0.8rem;
+}
+
+.bottom {
+  font-size: 0.65rem;
+  font-style: italic;
+}

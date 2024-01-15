@@ -1,0 +1,11 @@
+.container-timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.time-remaining {
+  font-size: 6rem;
+  user-select: none;
+}

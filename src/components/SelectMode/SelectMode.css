@@ -1,0 +1,11 @@
+.select-mode {
+  display: inline-flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.mode-active {
+  background-color: #202532;
+}

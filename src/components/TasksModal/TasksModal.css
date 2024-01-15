@@ -1,0 +1,95 @@
+.modal {
+  color: #5b5b5b;
+  width: 25%;
+  border-radius: 5px;
+  background-color: #fff;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding-bottom: 24px;
+}
+
+.pomo-form {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.pomo-form input {
+  color: #000;
+}
+
+.pomo-form div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.close {
+  width: fit-content;
+  position: absolute;
+  top: 2.5%;
+  right: 2.5%;
+  background: transparent;
+  font-size: 2rem;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  padding: 0;
+  font-weight: 300;
+  color: #5b5b5b;
+  border: none;
+  opacity: 1;
+  outline: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.task-modal-input {
+  margin: 2px;
+  border: none;
+  outline: none;
+  border-radius: 2.5px;
+  height: 1.5rem;
+  font-size: 1rem;
+  background-color: #efefef;
+  color: white;
+  border-bottom: 1px solid #fff;
+  margin-bottom: 15px;
+}
+
+.select-pomos {
+  width: 100%;
+  height: 1.5rem;
+}
+
+label {
+  text-align: left;
+}
+
+.modal-submit {
+  all: 'unset';
+  align-items: 'center';
+  box-sizing: 'border-box';
+  user-select: 'none';
+  display: 'inline-flex';
+  flex-shrink: 0;
+  justify-content: 'center';
+  line-height: '1';
+  height: 40px;
+  margin-top: 24px;
+  padding-left: 12px;
+  padding-right: 12px;
+  cursor: pointer;
+  border-radius: 8px;
+  background-color: #5b5b5b;
+  color: white;
+  font-size: 1rem;
+}

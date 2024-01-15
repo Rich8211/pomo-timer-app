@@ -1,0 +1,29 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 80px;
+}
+
+.btn-signin {
+  text-decoration: none;
+  color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 120px;
+}
+
+.btn-signin svg {
+  margin-left: 5px;
+}
+
+.navbar-items {
+  display: flex;
+  gap: 12px;
+}
