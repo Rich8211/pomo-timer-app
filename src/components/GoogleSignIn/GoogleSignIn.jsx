@@ -13,7 +13,8 @@ const GoogleSignIn = () => {
   return (
     <div className="googleContainer" onClick={signInWithGoogle}>
       <img src={googleLogo} alt="Google Logo" />
-      <span className={smallMatches ? 'mobile' : ''}>Sign In with Google</span>
+      <p>Sign In with Google</p>
+      {/* <span className={smallMatches ? 'mobile' : ''}>Google</span> */}
     </div>
   );
 };

@@ -15,7 +15,7 @@ const FormControl = ({
         <p className={'form-subtitle'}>{subtitle}</p>
         <div className="form-inputs">{children}</div>
         <button onClick={handleSubmit} className="submit">
-          <h3>{submitText}</h3>
+          {submitText}
         </button>
       </form>
     </div>

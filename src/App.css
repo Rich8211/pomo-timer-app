@@ -1,24 +1,24 @@
 * {
   box-sizing: border-box;
+  font-family: 'Nunito';
 }
 
 body {
-  background-color: #30384b;
-  color: #eee;
+  background-color: #fff;
   font-family: 'Nunito';
   min-height: 100vh;
 }
 
 button {
+  font-family: 'Nunito';
   background-color: transparent;
-  color: rgba(255, 255, 255, 0.8);
-  border: 0;
+  border: 2px solid #997950;
   display: flex;
   width: 140px;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  margin: auto;
+  margin: 0 10px;
   border-radius: 4px;
   font-size: 16px;
   padding: 2px 12px;
@@ -33,6 +33,6 @@ button {
 } */
 
 a {
-  color: #5b5b5b;
+  color: #000;
   padding-bottom: 10px;
 }

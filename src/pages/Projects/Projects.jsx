@@ -6,7 +6,6 @@ import './Projects.css';
 
 const Projects = () => {
   const { projects } = useContext(TaskContext);
-  console.log(projects);
 
   if (projects.length === 0) {
     return (

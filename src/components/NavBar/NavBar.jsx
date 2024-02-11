@@ -1,9 +1,6 @@
 import React, { useContext } from 'react';
-import LoginIcon from '@mui/icons-material/Login';
-import HomeIcon from '@mui/icons-material/Home';
 import { AuthContext } from '../../providers/AuthProvider';
 import { useNavigate } from 'react-router-dom';
-import LogoutIcon from '@mui/icons-material/Logout';
 import './NavBar.css';
 
 const NavBar = ({ handleModalOpen }) => {
@@ -13,19 +10,35 @@ const NavBar = ({ handleModalOpen }) => {
 
   return (
     <div className="navbar">
+      <div className="navbar-logo">pomodoro</div>
       <div className="navbar-items">
         {user ? (
           <>
-            <button onClick={() => navigate('/')}>Home</button>
-            <button onClick={() => navigate('/projects')}>Projects</button>
-            <button onClick={handleModalOpen}>Add Task</button>
-            <button onClick={signOut}>
-              <LogoutIcon /> Logout
+            <button className="navbar-button" onClick={() => navigate('/')}>
+              Home
+            </button>
+            <button
+              className="navbar-button"
+              onClick={() => navigate('/projects')}
+            >
+              Projects
+            </button>
+            <button className="navbar-button" onClick={handleModalOpen}>
+              Add Task
+            </button>
+            <button
+              className="navbar-button"
+              onClick={() => {
+                signOut();
+                navigate('/');
+              }}
+            >
+              Logout
             </button>
           </>
         ) : (
-          <button className="btn-signin" onClick={() => navigate('/login')}>
-            <LoginIcon /> Sign In
+          <button className="navbar-button" onClick={() => navigate('/login')}>
+            Sign In
           </button>
         )}
       </div>

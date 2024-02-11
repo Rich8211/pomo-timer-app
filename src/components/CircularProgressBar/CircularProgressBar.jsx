@@ -1,8 +1,8 @@
 import React from 'react';
 import './CircularProgressBar.css';
 
-const CircleProgressBar = ({ percentage, circleWidth }) => {
-  const radius = 85;
+const CircleProgressBar = ({ percentage, circleWidth, time }) => {
+  const radius = 170;
   const dashArray = radius * Math.PI * 2;
   const dashOffset = dashArray - (dashArray * percentage) / 100;
 
@@ -16,7 +16,7 @@ const CircleProgressBar = ({ percentage, circleWidth }) => {
         <circle
           cx={circleWidth / 2}
           cy={circleWidth / 2}
-          strokeWidth="8px"
+          strokeWidth="16px"
           r={radius}
           className="circle-background"
         />
@@ -24,7 +24,7 @@ const CircleProgressBar = ({ percentage, circleWidth }) => {
         <circle
           cx={circleWidth / 2}
           cy={circleWidth / 2}
-          strokeWidth="8px"
+          strokeWidth="16px"
           r={radius}
           className="circle-progress"
           style={{
@@ -39,8 +39,11 @@ const CircleProgressBar = ({ percentage, circleWidth }) => {
           dy="0.3em"
           textAnchor="middle"
           className="circle-text"
-        ></text>
+        >{time}</text>
       </svg>
+      <button>
+        Play
+      </button>
     </div>
   );
 };

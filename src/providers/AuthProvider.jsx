@@ -1,8 +1,10 @@
 import { createContext, useState, useEffect } from 'react';
 import { supabase } from '../client';
+import { useNavigate } from 'react-router-dom';
 export const AuthContext = createContext();
 
 const UserProvider = ({ children }) => {
+  
   const login = (email, password) =>
     supabase.auth.signInWithPassword({ email, password });
   const signInWithGoogle = () =>
@@ -19,7 +21,10 @@ const UserProvider = ({ children }) => {
   const updatePassword = (updatedPassword) =>
     supabase.auth.updateUser({ password: updatedPassword });
 
-  const signOut = () => supabase.auth.signOut();
+  const signOut = () => {
+      supabase.auth.signOut()
+
+    };
 
   const [user, setUser] = useState(null);
   const [auth, setAuth] = useState(false);

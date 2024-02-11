@@ -12,17 +12,18 @@
   border: 2px solid #fff;
   border-radius: 5px;
   font-weight: 500;
-  background-color: #5b5b5b;
+  background-color: 	#362312;
   color: #ffffff;
 }
 
 .googleContainer img {
-  width: 12.5%;
+  /* width: 12.5%; */
   height: 90%;
   object-fit: contain;
-  left: 10px;
+  /* left:10px; */
   border-radius: 3px;
-  position: absolute;
+  padding-right: 10px;
+  /* position: absolute; */
 }
 
 .mobile {

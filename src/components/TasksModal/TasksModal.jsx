@@ -20,54 +20,60 @@ const TasksModal = ({ handleClose }) => {
     handleClose();
   };
 
-  return (
-    <div className="modal">
-      <button onClick={handleClose} className="close">
-        &times;
-      </button>
+  const handleClick = (e) => {
+    if (e.target.className === 'overlay') handleClose();
+  };
 
-      <form className="pomo-form" onSubmit={handleSubmit}>
-        <h2>Add A Task</h2>
-        <div>
-          <label htmlFor="task-name">Task Name</label>
-          <input
-            className="task-modal-input"
-            id="task-name"
-            type="text"
-            value={taskName}
-            onChange={(e) => setTaskName(e.target.value)}
-          />
-        </div>
-        <div>
-          <label htmlFor="project">Project</label>
-          <input
-            className="task-modal-input"
-            id="project"
-            type="text"
-            value={project}
-            onChange={(e) => setProject(e.target.value)}
-          />
-        </div>
-        <div>
-          <label htmlFor="pomodoros">Pomodoros</label>
-          <select
-            className="select-pomos"
-            id="pomodoros"
-            value={pomodoros}
-            onChange={(e) => setPomodoros(e.target.value)}
-          >
-            {POMO_VALUES.map((num, i) => (
-              <option key={i} value={num}>
-                {' '}
-                {num}
-              </option>
-            ))}
-          </select>
-        </div>
-        <button className="modal-submit" type="submit">
-          Submit
+  return (
+    <div className="overlay" onClick={handleClick}>
+      <div className="modal">
+        <button onClick={handleClose} className="close">
+          &times;
         </button>
-      </form>
+
+        <form className="pomo-form" onSubmit={handleSubmit}>
+          <h2>Add Task</h2>
+          <div>
+            <label htmlFor="task-name">Task Name</label>
+            <input
+              className="task-modal-input"
+              id="task-name"
+              type="text"
+              value={taskName}
+              onChange={(e) => setTaskName(e.target.value)}
+            />
+          </div>
+          <div>
+            <label htmlFor="project">Project</label>
+            <input
+              className="task-modal-input"
+              id="project"
+              type="text"
+              value={project}
+              onChange={(e) => setProject(e.target.value)}
+            />
+          </div>
+          <div>
+            <label htmlFor="pomodoros">Pomodoros</label>
+            <select
+              className="select-pomos"
+              id="pomodoros"
+              value={pomodoros}
+              onChange={(e) => setPomodoros(e.target.value)}
+            >
+              {POMO_VALUES.map((num, i) => (
+                <option key={i} value={num}>
+                  {' '}
+                  {num}
+                </option>
+              ))}
+            </select>
+          </div>
+          <button className="modal-submit" type="submit">
+            Submit
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

@@ -73,8 +73,12 @@ const Timer = () => {
 
   return (
     <div className="container-timer">
-      <div className="time-remaining">{minutes + ':' + seconds}</div>
-      <CircleProgressBar percentage={percentage} circleWidth="200" />
+      {/* <div className="time-remaining">{minutes + ':' + seconds}</div> */}
+      <CircleProgressBar
+        percentage={percentage}
+        circleWidth="400"
+        time={minutes + ':' + seconds}
+      />
       <div style={{ marginTop: '20px' }}>
         {isPaused ? (
           <PlayButton onClick={handlePlay} />

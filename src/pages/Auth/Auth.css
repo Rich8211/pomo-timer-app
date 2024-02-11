@@ -1,0 +1,28 @@
+.auth-wrapper {
+  display: block;
+  height: 100vh;
+  width: 100vw;
+}
+
+.auth-content {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.auth-bg {
+  width: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* background-image: url('.../.../Images/loginImage.jpg'); */
+}
+
+.auth {
+  width: 50%;
+  position: relative;
+}
+
+.signin-form {
+}

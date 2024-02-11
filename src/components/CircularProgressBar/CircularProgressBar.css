@@ -15,17 +15,18 @@ svg {
 
 .circle-background {
   fill: none;
-  stroke: #ddd;
+  stroke: #997950;
 }
 
 .circle-progress {
   fill: none;
-  stroke: var(--color1);
+  stroke: #362312;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 
 .circle-text {
-  font-size: 3rem;
+  font-size: 5rem;
   font-weight: bold;
+  color: #3a2ab0;
 }

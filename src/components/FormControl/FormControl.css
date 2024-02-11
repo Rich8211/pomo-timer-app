@@ -1,14 +1,14 @@
 .form-container {
-  color: #5b5b5b;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  /* transform: translate(-50%, -50%);
   height: auto;
-  width: 30%;
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: rgb(196, 196, 196) 0px 1px 0px;
+  width: 30%; */
+  width: 50%;
+  /* background-color: #fff; */
+  /* border-radius: 5px; */
+  /* box-shadow: rgb(196, 196, 196) 0px 1px 0px; */
 }
 
 .form-inputs {
@@ -19,7 +19,7 @@
 }
 
 .form-inner {
-  width: 70%;
+  /* width: 70%; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -42,8 +42,10 @@
 }
 
 .submit {
-  background-color: #5b5b5b;
+  color: #fff;
+  background-color:#362312;
   margin: 0 auto 15px;
-  color: #eee;
   width: fit-content;
+  font-size: 1.5rem;
+  padding: 15px;
 }

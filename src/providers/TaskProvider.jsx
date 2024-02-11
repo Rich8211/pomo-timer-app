@@ -8,12 +8,13 @@ const TaskProvider = ({ children }) => {
 
   const [tasks, setTasks] = useState([]);
   const [projects, setProjects] = useState([]);
+  const [projectDescription, setProjectDescription] = useState('');
 
   useEffect(() => {
     if (user?.id) {
       getTasks(user.id);
       getProjects(user.id);
-    }
+    } else setTasks([]);
   }, [user]);
 
   const getTasks = async (user_id) => {
@@ -25,8 +26,36 @@ const TaskProvider = ({ children }) => {
   };
 
   const getProjects = async (user_id) => {
-    let { data: projects, error } = await supabase.from('projects').select('*');
+    let { data: projects, error } = await supabase
+      .from('projects')
+      .select('*')
+      .eq('user_id', user_id);
     if (projects.length > 0) setProjects(projects);
+  };
+
+  const getTasksByProject = async (project_id) => {
+    let { data: tasks, error } = await supabase
+      .from('tasks')
+      .select('*')
+      .eq('project_id', project_id);
+    return tasks;
+  };
+  const getCompletedTasksByProject = async (project_id) => {
+    let { data: tasks, error } = await supabase
+      .from('tasks')
+      .select('*')
+      .eq('project_id', project_id)
+      .eq('is_completed', 'TRUE');
+    return tasks;
+  };
+
+  const editDescription = async (user_id, project_id, description) => {
+    const { data, error } = await supabase
+      .from('projects')
+      .eq('user_id', user_id)
+      .eq('project_id', project_id)
+      .update({ description: description })
+      .select();
   };
 
   const addTask = async (user_id, name, project, pomodoros) => {
@@ -61,6 +90,7 @@ const TaskProvider = ({ children }) => {
       pomodoros_assigned: pomodoros,
       is_complete: false,
       pomodoros_consumed: 0,
+      is_selected: false,
     };
 
     const { data, error } = await supabase
@@ -68,7 +98,15 @@ const TaskProvider = ({ children }) => {
       .insert([newTask])
       .select();
 
-    setTasks([newTask, ...tasks]);
+    // setTasks([newTask, ...tasks]);
+    getTasks(user_id);
+  };
+
+  const selectTask = (id) => {
+    const editedTasks = tasks.map((task) => {
+      if (task.id === id) return { ...task, is_selected: !task.is_selected };
+      return { ...task, is_selected: false };
+    });
   };
 
   const deleteTask = (id) => {
@@ -92,7 +130,10 @@ const TaskProvider = ({ children }) => {
         tasks,
         projects,
         addTask,
+        selectTask,
         completeTask,
+        getTasksByProject,
+        getCompletedTasksByProject,
       }}
     >
       {children}
