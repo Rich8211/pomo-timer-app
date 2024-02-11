@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Card.css';
 
-const Card = ({ id, title, description }) => {  
+const Card = ({ id, title, description }) => {
   const navigate = useNavigate();
 
   return (
@@ -10,7 +10,7 @@ const Card = ({ id, title, description }) => {
       <div className="card-inner">
         <div className="card-body">
           <h2>{title}</h2>
-          <p>{description ? description : "No Description.  Click to Edit"}</p>
+          <p>{description ? description : 'No Description.  Click to Edit'}</p>
         </div>
       </div>
     </div>

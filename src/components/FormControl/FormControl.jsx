@@ -1,6 +1,8 @@
 import React from 'react';
 import './FormControl.css';
 
+import Button from '../Buttons/Button';
+
 const FormControl = ({
   children,
   title,
@@ -14,9 +16,9 @@ const FormControl = ({
         <h2 className="title">{title}</h2>
         <p className={'form-subtitle'}>{subtitle}</p>
         <div className="form-inputs">{children}</div>
-        <button onClick={handleSubmit} className="submit">
+        <Button type="secondary" onClick={handleSubmit}>
           {submitText}
-        </button>
+        </Button>
       </form>
     </div>
   );

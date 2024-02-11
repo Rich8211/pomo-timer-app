@@ -1,11 +1,11 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect, useMemo } from 'react';
 import { FormContext } from '../../providers/FormProvider';
 import FormControl from '../../components/FormControl/FormControl';
 import FormInput from '../../components/FormInput/FormInput';
 import { supabase } from '../../client';
 
 const SignUp = () => {
-  const register = (email, password) =>
+  const handleRegister = (email, password) =>
     supabase.auth.signUp({ email, password });
 
   const {
@@ -17,6 +17,8 @@ const SignUp = () => {
     subtitle,
     setSubtitle,
   } = useContext(FormContext);
+
+  const { email, password, passwordCheck } = form;
 
   const [passWordNotMatch, setPasswordNotMatch] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -34,8 +36,6 @@ const SignUp = () => {
     if (missingFields) setSubtitle('Please fill out all required fields');
   }, [passWordNotMatch, missingFields, setSubtitle]);
 
-  const { email, password, passwordCheck } = form;
-
   const handleSignUp = async (e) => {
     e.preventDefault();
     if (missingFields) setMissingFields(false);
@@ -51,7 +51,7 @@ const SignUp = () => {
 
     try {
       setLoading(true);
-      const { data, error } = await register(email, password);
+      const { data, error } = await handleRegister(email, password);
       if (!error && data) {
         setSubtitle(
           'Registration Successful. Check your email to confirm your account'
@@ -63,34 +63,37 @@ const SignUp = () => {
     setLoading(false);
   };
 
-  const Inputs = [
-    {
-      htmlFor: 'email',
-      upperLabel: 'Email*',
-      bottomLabel: 'Please enter a valid email address',
-      name: 'email',
-      handleChange: updateField,
-      type: 'email',
-      inputType: 'input',
-    },
-    {
-      htmlFor: 'password',
-      upperLabel: 'Password*',
-      bottomLabel: 'Password must be atleast six characters long',
-      name: 'password',
-      handleChange: updateField,
-      type: 'password',
-      inputType: 'input',
-    },
-    {
-      htmlFor: 'passwordCheck',
-      upperLabel: 'Confirm Password*',
-      name: 'passwordCheck',
-      handleChange: updateField,
-      type: 'password',
-      inputType: 'input',
-    },
-  ];
+  const inputs = useMemo(
+    () => [
+      {
+        htmlFor: 'email',
+        upperLabel: 'Email*',
+        bottomLabel: 'Please enter a valid email address',
+        name: 'email',
+        handleChange: updateField,
+        type: 'email',
+        inputType: 'input',
+      },
+      {
+        htmlFor: 'password',
+        upperLabel: 'Password*',
+        bottomLabel: 'Password must be atleast six characters long',
+        name: 'password',
+        handleChange: updateField,
+        type: 'password',
+        inputType: 'input',
+      },
+      {
+        htmlFor: 'passwordCheck',
+        upperLabel: 'Confirm Password*',
+        name: 'passwordCheck',
+        handleChange: updateField,
+        type: 'password',
+        inputType: 'input',
+      },
+    ],
+    [updateField]
+  );
 
   return (
     <FormControl
@@ -99,7 +102,7 @@ const SignUp = () => {
       handleSubmit={handleSignUp}
       subtitle={subtitle}
     >
-      {Inputs.map((input, i) => (
+      {inputs.map((input, i) => (
         <FormInput key={i} {...input} />
       ))}
     </FormControl>
