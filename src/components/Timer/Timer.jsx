@@ -1,6 +1,4 @@
 import React, { useContext, useEffect, useState, useRef } from 'react';
-import PauseButton from '../Buttons/PauseButton';
-import PlayButton from '../Buttons/PlayButton';
 import useSound from 'use-sound';
 import clickSound from '../../Sounds/click.mp3';
 import { PomoContext } from '../../providers/PomoProvider';
@@ -75,17 +73,13 @@ const Timer = () => {
     <div className="container-timer">
       {/* <div className="time-remaining">{minutes + ':' + seconds}</div> */}
       <CircleProgressBar
+        isPaused={isPaused}
         percentage={percentage}
         circleWidth="400"
         time={minutes + ':' + seconds}
+        onPlay={handlePlay}
+        onPause={handlePause}
       />
-      <div style={{ marginTop: '20px' }}>
-        {isPaused ? (
-          <PlayButton onClick={handlePlay} />
-        ) : (
-          <PauseButton onClick={handlePause} />
-        )}
-      </div>
     </div>
   );
 };

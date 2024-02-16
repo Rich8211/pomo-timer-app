@@ -4,9 +4,5 @@
   justify-content: center;
   -webkit-box-align: center;
   align-items: center;
-}
-
-.mode-active {
-  background-color: #997950;
-  color: #ffffff;
+  gap: 12px;
 }

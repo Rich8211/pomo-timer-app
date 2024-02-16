@@ -17,19 +17,13 @@ import UpdatePassword from './pages/UpdatePassword/UpdatePassword';
 import Project from './pages/Project/Project';
 import './App.css';
 
-
 function App() {
-
-
-
-
   return (
     <PomoProvider>
       <AuthProvider>
         <TaskProvider>
           <FormProvider>
             <BrowserRouter>
-              
               <Routes>
                 <Route exact path="/" element={<Home />} />
                 <Route path="/projects" element={<Projects />} />

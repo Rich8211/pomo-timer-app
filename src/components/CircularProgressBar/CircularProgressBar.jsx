@@ -1,13 +1,22 @@
 import React from 'react';
 import './CircularProgressBar.css';
+import PlayButtonIcon from '../../icons/PlayButtonIcon';
+import PauseButtonIcon from '../../icons/PauseButtonIcon';
 
-const CircleProgressBar = ({ percentage, circleWidth, time }) => {
+const CircleProgressBar = ({
+  isPaused,
+  percentage,
+  circleWidth,
+  time,
+  onPlay,
+  onPause,
+}) => {
   const radius = 170;
   const dashArray = radius * Math.PI * 2;
   const dashOffset = dashArray - (dashArray * percentage) / 100;
 
   return (
-    <div>
+    <div className="progress-bar-container">
       <svg
         width={circleWidth}
         height={circleWidth}
@@ -39,11 +48,18 @@ const CircleProgressBar = ({ percentage, circleWidth, time }) => {
           dy="0.3em"
           textAnchor="middle"
           className="circle-text"
-        >{time}</text>
+        >
+          {time}
+        </text>
       </svg>
-      <button>
-        Play
-      </button>
+      <div className="play-pause-button-container">
+        <button
+          className="play-pause-button"
+          onClick={isPaused ? onPlay : onPause}
+        >
+          {isPaused ? <PlayButtonIcon /> : <PauseButtonIcon />}
+        </button>
+      </div>
     </div>
   );
 };

@@ -9,25 +9,6 @@ body {
   min-height: 100vh;
 }
 
-button {
-  font-family: 'Nunito';
-  background-color: transparent;
-  border: 2px solid #997950;
-  display: flex;
-  width: 140px;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  margin: 0 10px;
-  border-radius: 4px;
-  font-size: 16px;
-  padding: 2px 12px;
-  height: 28px;
-  background: none;
-  box-shadow: none;
-  font-weight: 300;
-}
-
 /* button:focus {
   background-color: #202532;
 } */

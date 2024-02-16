@@ -30,3 +30,32 @@ svg {
   font-weight: bold;
   color: #3a2ab0;
 }
+
+.progress-bar-container {
+  height: 400px;
+  position: relative;
+}
+
+.play-pause-button-container {
+  position: absolute;
+  top: 66%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.play-pause-button {
+  border: none;
+  width: auto;
+}
+
+.play-pause-button svg {
+  width: auto;
+}
+
+.play-pause-button {
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}

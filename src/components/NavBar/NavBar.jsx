@@ -9,40 +9,53 @@ const NavBar = ({ handleModalOpen }) => {
   const { user, signOut } = useContext(AuthContext);
 
   return (
-    <div className="navbar">
+    <nav className="navbar">
       <div className="navbar-logo">pomodoro</div>
-      <div className="navbar-items">
+      <ul className="navbar-items">
         {user ? (
           <>
-            <button className="navbar-button" onClick={() => navigate('/')}>
-              Home
-            </button>
-            <button
-              className="navbar-button"
-              onClick={() => navigate('/projects')}
-            >
-              Projects
-            </button>
-            <button className="navbar-button" onClick={handleModalOpen}>
-              Add Task
-            </button>
-            <button
-              className="navbar-button"
-              onClick={() => {
-                signOut();
-                navigate('/');
-              }}
-            >
-              Logout
-            </button>
+            <li>
+              <button className="navbar-button" onClick={() => navigate('/')}>
+                Home
+              </button>
+            </li>
+            <li>
+              <button
+                className="navbar-button"
+                onClick={() => navigate('/projects')}
+              >
+                Projects
+              </button>
+            </li>
+            <li>
+              <button className="navbar-button" onClick={handleModalOpen}>
+                Add Task
+              </button>
+            </li>
+            <li>
+              <button
+                className="navbar-button"
+                onClick={() => {
+                  signOut();
+                  navigate('/');
+                }}
+              >
+                Logout
+              </button>
+            </li>
           </>
         ) : (
-          <button className="navbar-button" onClick={() => navigate('/login')}>
-            Sign In
-          </button>
+          <li>
+            <button
+              className="navbar-button"
+              onClick={() => navigate('/login')}
+            >
+              Sign In
+            </button>
+          </li>
         )}
-      </div>
-    </div>
+      </ul>
+    </nav>
   );
 };
 

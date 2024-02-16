@@ -1,30 +1,26 @@
 import React, { useContext } from 'react';
 import { PomoContext } from '../../providers/PomoProvider';
-import './SelectMode.css'
+import './SelectMode.css';
+
+import Button from '../Buttons/Button';
 
 const SelectMode = () => {
   const { handleSetMode, mode } = useContext(PomoContext);
 
   return (
     <div className="select-mode">
-      <button
-        className={mode === 'work' && 'mode-active'}
-        onClick={() => handleSetMode('work')}
-      >
+      <Button active={mode === 'work'} onClick={() => handleSetMode('work')}>
         Work
-      </button>
-      <button
-        className={mode === 'break' && 'mode-active'}
-        onClick={() => handleSetMode('break')}
-      >
+      </Button>
+      <Button active={mode === 'break'} onClick={() => handleSetMode('break')}>
         Break
-      </button>
-      <button
-        className={mode === 'long break' && 'mode-active'}
+      </Button>
+      <Button
+        active={mode === 'long break'}
         onClick={() => handleSetMode('long break')}
       >
         Long Break
-      </button>
+      </Button>
     </div>
   );
 };

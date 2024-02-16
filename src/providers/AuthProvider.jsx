@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 export const AuthContext = createContext();
 
 const UserProvider = ({ children }) => {
-  
   const login = (email, password) =>
     supabase.auth.signInWithPassword({ email, password });
   const signInWithGoogle = () =>
@@ -22,9 +21,8 @@ const UserProvider = ({ children }) => {
     supabase.auth.updateUser({ password: updatedPassword });
 
   const signOut = () => {
-      supabase.auth.signOut()
-
-    };
+    supabase.auth.signOut();
+  };
 
   const [user, setUser] = useState(null);
   const [auth, setAuth] = useState(false);
